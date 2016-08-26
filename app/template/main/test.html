@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block body %}
+<!-- The hero media class -->
+<div id="hero" class="tweleve columns">
+    hello
+</div><!-- End .hero-->
+
+<!-- Row class -->
+<div class="row">
+    {% for product in products %}
+    <div class="four columns product">
+        <a href="{{ product.get_absolute_url}}">
+            <img  src="{% if product.image_thumbnail.url %}{{product.image_thumbnail.url}}{% else %}#{% endif %}" alt="{{product.slug}}">
+        </a>
+    </div><!-- End .prduct -->
+    {% endfor %}
+    <!--<div class="four columns product">
+    </div>
+    <div class="four columns product">
+    </div>-->
+</div><!-- End .row -->
+
+{% endblock %}

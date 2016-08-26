@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="top-part">
+{% for product in products %}
+<a href="{{product.category.get_absolute_url}}">{{ product.category }}<a/>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="row">
+	{% include "products/_category_list.html" %}
+	<div class="col-xs-12 col-md-9">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Library</a></li>
+          <li class="active">Data</li>
+        </ol>
+        <div class="row">
+            {% for product in category.product_set.all %}
+            <div class="col-xs-12 col-md-3">
+                <a class="thumbnail" href="{{product.get_absolute_url}}">
+                    <img class="img-responsive" src="{% if product.image_thumbnail_xs %}{{product.image_thumbnail_xs.url}}{% else %}#{% endif %}" alt="{{product.slug}}">
+                    </a>
+            </div>
+            {% endfor %}
+        </div>
+	</div>
+</div>
+{% endblock %}

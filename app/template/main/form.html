@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="top-part">
+	<div class="col-xs-12 col-md-6 col-md-offset-3 contact-form">
+		<div id="form-heading">
+			<h1>{{ header }}</h1>
+		</div>
+		<hr/>
+		<form method="POST" action="/cover/" name="cover_form" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="form-group">
+				{{ form.name.label }}
+				{{ form.name }}
+			</div>
+			<div class="form-group">
+				<label class="btn-file">
+					Choose Image
+					{{ form.image }}
+				</label>
+			</div>
+			<input class="btn btn-send" type="submit" id="submit" value="UPLOAD" />
+		</form>
+	</div>
+</div>
+{% endblock %}

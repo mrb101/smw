@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block body %}
+<div class="row">
+    <div id="cat-list" class="two columns">
+    {% include "products/_category_list.html" %}
+    </div>
+    <div class="eight columns">
+        <p class="title">Product</p>
+        <div class="row">
+            <div class="three columns">
+                <h4><span class="currency">Rs:</span> {{product.price}}</h4>
+            </div>
+            <div class="three columns">
+                <h4 class="pr-name"><a href="{{product.get_absolute_url}}">{{product.name}}</a></h4>
+            </div>
+            <div class="six columns">
+                <p>lkajdflk ajdlfkjadlf kjadlkfjald kfjlad kfjladkjflad kjfladkjfl adkjfl kdjflkdaj lk flkdajflkadjf lkajdflkadjfl kajd flkajd flkajd flakdjf ladkdfj {{product.description}}</p>
+            </div>
+            <img src="{% if product.image %}{{product.image.url}}{% else %}#{% endif %}" alt="{{product.slug}}">
+        </div>
+    </div>
+</div>
+{% endblock %}

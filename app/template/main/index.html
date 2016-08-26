@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<!-- The hero media class -->
+<div id="hero" class="col-xs-12 col-md-12">
+    <img class="img-responsive cover" src="{% static 'images/cover.png' %}">
+</div><!-- End .hero-->
+<div class="col-xs-12 col-md-12">
+    <p class="title">Latest Products:</p>
+<hr style="width: 100%; color: black; height: 1px; background-color:gray;" />
+</div>
+<!-- Row class -->
+<div class="row">
+    {% for product in products %}
+    <div class="col-xs-12 col-md-4 latest">
+        <a href="{{ product.get_absolute_url}}">
+            <img  src="{% if product.image_thumbnail.url %}{{product.image_thumbnail.url}}{% else %}#{% endif %}" alt="{{product.slug}}">
+        </a>
+    </div><!-- End .prduct -->
+    {% endfor %}
+</div><!-- End .row -->
+
+{% endblock %}
